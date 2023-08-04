@@ -1,0 +1,27 @@
+<!-- signed_pdf_app/templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signed PDFs</title>
+</head>
+<body>
+    <h1>Signed PDFs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>PDF Name</th>
+                <th>Download Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for signed_pdf in signed_pdfs %}
+                <tr>
+                    <td>{{ signed_pdf.file.name }}</td>
+                    <td><a href="{% url 'download_pdf' signed_pdf.pk %}">Download</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
